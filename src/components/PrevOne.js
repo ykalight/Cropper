@@ -1,7 +1,7 @@
 import React from 'react'
 // state for IMG, upload, final ok
 
-export default function PrevOne({ xpos, ypos, size }) {
+export default function PrevOne({ xpos, ypos, size, hasImage }) {
     return (
         <div className="prev1-wrapper">
             <div className="prev1-inner" style={{width: '450px', height: '200px', overflow: 'hidden'}}>
@@ -13,7 +13,8 @@ export default function PrevOne({ xpos, ypos, size }) {
                         left: `${xpos}px`
                     }}
                 ></div>
-                <img alt="" src={process.env.PUBLIC_URL + '/img/hero_01.jpg'} /> 
+                {/* <img alt="" src={process.env.PUBLIC_URL + '/img/hero_04.jpg'} /> */}
+                <img alt="" src={process.env.PUBLIC_URL + '/img/' + hasImage + '.jpg'} />  
             </div>
         </div>
     )
