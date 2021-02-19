@@ -1,10 +1,6 @@
 import React from 'react'
 
-export default function PrevTwo({ xpos, ypos, size, hasImage, confirm, handleRedo }) {
-
-    function handleOver() {
-        handleRedo()
-    }
+export default function PrevTwo({ xpos, ypos, size, hasImage, confirm }) {
 
     const style = {
         backgroundImage: `url(${process.env.PUBLIC_URL + '/img/' + hasImage + '.jpg'})`,
@@ -20,13 +16,9 @@ export default function PrevTwo({ xpos, ypos, size, hasImage, confirm, handleRed
 
     return (
         <>
-            <div className="prev2-wrapper">
+            <div className={confirm ? 'prev2-wrapper confirmed' : 'prev2-wrapper'} >
                 <div style={style}></div>
             </div>
-            
-            {
-                confirm && <button onClick={handleOver}>Delete & Start Over</button>
-            }
         </>
     )
 }
