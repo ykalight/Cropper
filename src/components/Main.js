@@ -2,12 +2,13 @@ import React, { useState }from 'react'
 import PrevOne from './PrevOne'
 import PrevTwo from './PrevTwo'
 import Modal from './Modal'
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ZoomInIcon from '@material-ui/icons/ZoomIn';
-import ZoomOutIcon from '@material-ui/icons/ZoomOut';
+import images from './dataimages.json'
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
+import NavigateNextIcon from '@material-ui/icons/NavigateNext'
+import ExpandLessIcon from '@material-ui/icons/ExpandLess'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import ZoomInIcon from '@material-ui/icons/ZoomIn'
+import ZoomOutIcon from '@material-ui/icons/ZoomOut'
 
 const STARTVALUE = {
     xpos: 225,
@@ -17,17 +18,8 @@ const STARTVALUE = {
     sizeIncrement: 5,
     maxRight: 245,
     minLeft: 150,
-    minSize: 180
+    minSize: 170
 }
-
-// const BTSTATE = {
-//     left: true,
-//     right: true,
-//     up: false,
-//     down: false,
-//     bigger: false,
-//     smaller: true
-// }
 
 export default function Main() {
     const [hasImage, setHasImage] = useState('')
@@ -49,7 +41,13 @@ export default function Main() {
 
     const changeSize = (dir) => {
         if (dir === 'sub' && size > STARTVALUE.minSize) setSize(prev => prev - STARTVALUE.sizeIncrement)
-        if (dir === 'add' && STARTVALUE.size > (size + ypos) && STARTVALUE.size > (size + (xpos - STARTVALUE.maxRight))) setSize(prev => prev + STARTVALUE.sizeIncrement)
+        if (dir === 'add') { 
+            if (size < 200) {
+                if (xpos + size >= 450) {setXpos(prev => prev - 5)}
+                if (ypos + size >= 200) {setYpos(prev => prev - 5)}
+                setSize(prev => prev + STARTVALUE.sizeIncrement)
+            }
+        }
     }
 
     const handleReset = () => {
@@ -140,7 +138,7 @@ export default function Main() {
         <div className="container">
             <h2>Banner Image Crop Tool - v0.01</h2>
             {renderConfirmmed()}
-            {modal && <Modal closeModal={closeModal} handleImg={handleImg} />}
+            {modal && <Modal closeModal={closeModal} handleImg={handleImg} images={images} />}
         </div>
     )
 }

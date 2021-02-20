@@ -3,6 +3,7 @@ import React from 'react'
 export default function PrevTwo({ xpos, ypos, size, hasImage, confirm }) {
 
     const style = {
+        transition: '.3s',
         backgroundImage: `url(${process.env.PUBLIC_URL + '/img/' + hasImage + '.jpg'})`,
         borderRadius: '50%',
         border: 'solid 1px #ccc',

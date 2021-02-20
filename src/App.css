@@ -14,7 +14,6 @@ body {
     width: 100%;
     height: 100%;
 }
-
 .prev1-box {
     position: absolute;
     border-radius: 50%;
@@ -45,20 +44,6 @@ body {
     position: relative;
     border-bottom: solid 1px #ccc;
     padding: 20px 0;
-}
-
-.modalWrapper{
-    width: 50vh;background-color: #fff;
-    display: flex; flex-direction: column; padding: 20px;
-    align-items: center;
-    overflow: scroll;
-}
-.modalWrapper img {width: 200px; cursor: pointer}
-.mask{
-    z-index: 99; 
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: flex; 
-    justify-content: center; 
-    background-color: rgba(0, 0, 0, .24);
 }
 
 .resultData {
@@ -97,4 +82,29 @@ button.btControl:nth-child(7) {
     color: rgb(196, 0, 0);
     background-color: #fff;
     border-color: rgb(196, 0, 0);
+}
+
+/* ================= Modal ================ */
+.mask{
+    z-index: 99; 
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: flex; 
+    justify-content: center; 
+    align-items: center;
+    background-color: rgba(0, 0, 0, .24);
+}
+.modalWrapper{
+    border-radius: 4px;
+    height: 80vh;
+    width: 30vw;
+    background-color: #fff;
+    display: flex; flex-direction: column; padding: 20px 0;
+    overflow: scroll;
+    text-align: center;
+}
+.modalWrapper img {
+    transition: .3s;
+    width: 80%; border: solid 1px #eee; cursor: pointer
+}
+.modalWrapper img:hover {
+    border-color: rgba(196, 0, 0, .6);
 }

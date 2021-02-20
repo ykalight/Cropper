@@ -1,7 +1,6 @@
 import React from 'react'
-// state for IMG, upload, final ok
 
-export default function PrevOne({ xpos, ypos, size, hasImage, confirm }) {
+export default function PrevOne({ xpos, ypos, size, hasImage, confirm, maxWarning }) {
     return (
         <div className="prev1-wrapper">
             <div className="prev1-inner" style={{width: '450px', height: '200px', overflow: 'hidden'}}>
